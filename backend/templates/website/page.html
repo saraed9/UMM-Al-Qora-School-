@@ -1,0 +1,39 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ title }} | UMM ALQORA d’EXCELLENCE{% endblock %}
+
+{% block content %}
+<main class="inner-page">
+    <section class="page-hero">
+        <div class="wrap">
+            <p>UMM ALQORA d’EXCELLENCE · Oujda</p>
+            <h1>{{ title }}</h1>
+            <h2>{{ subtitle }}</h2>
+            <p>{{ description }}</p>
+            <a class="btn" href="{% url 'website:preinscription' %}">
+                Inscrire mon enfant
+            </a>
+        </div>
+    </section>
+
+    <section class="page-content">
+        <div class="wrap">
+            <div class="page-grid">
+                {% for section in sections %}
+                    <article class="page-card">
+                        <h2>{{ section.title }}</h2>
+                        <p>{{ section.text }}</p>
+                    </article>
+                {% endfor %}
+            </div>
+
+            <div class="page-action">
+                <a class="btn" href="{% url 'website:contact' %}">
+                    Nous contacter
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

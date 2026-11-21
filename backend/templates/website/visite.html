@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+
+{% block title %}Visiter l'école | UMM ALQORA{% endblock %}
+
+{% block content %}
+<main class="inner-page">
+    <section class="page-hero">
+        <div class="wrap">
+            <h1>Planifier une visite</h1>
+            <p>Venez découvrir l'école et rencontrer notre équipe.</p>
+        </div>
+    </section>
+
+    <section class="page-content">
+        <div class="wrap">
+            <form class="school-form" method="post">
+                {% csrf_token %}
+
+                <label>Nom du parent</label>
+                <input type="text" name="parent_name" required>
+
+                <label>Téléphone</label>
+                <input type="tel" name="phone" required>
+
+                <label>E-mail</label>
+                <input type="email" name="email" required>
+
+                <label>Date souhaitée</label>
+                <input type="date" name="visit_date" required>
+
+                <label>Message complémentaire</label>
+                <textarea name="message" rows="4"></textarea>
+
+                <button class="btn" type="submit">
+                    Demander une visite
+                </button>
+            </form>
+        </div>
+    </section>
+</main>
+{% endblock %}

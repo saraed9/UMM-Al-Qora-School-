@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main id="v-home">
+<div class="hero">
+<div class="vbox"><video autoplay muted loop playsinline aria-hidden="true"><source src="{% static 'video/hero.mp4' %}" type="video/mp4"></video></div>
+<div class="wrap">
+<div><small>À UMM ALQORA, nous cultivons</small>
+<h1 id="rot" aria-live="polite">la curiosité de chaque enfant.</h1>
+<div class="btns"><a class="btn" href="{% url 'website:visite' %}">
+    Planifier une visite
+</a><a class="btn o" href="#histoire">Découvrir l’école</a></div><p class="meta">Préscolaire · Primaire · Collège &nbsp;|&nbsp; Oujda &nbsp;|&nbsp; Rentrée en septembre 2027</p></div>
+</div></div>
+
+<section id="about"><div class="wrap about">
+<div class="slot arch"><span>Photo réelle : élèves en classe</span></div>
+<div><h2>Une école moderne où l’enfant est au centre.</h2>
+<p>UMM ALQORA d’EXCELLENCE ouvrira ses portes à Oujda en septembre 2027. Du préscolaire au collège, elle suit le programme officiel marocain, valorise l’arabe et renforce le français, l’anglais et l’informatique, dans un cadre trilingue et bienveillant.</p>
+<div class="pp"><div><h3>Notre philosophie</h3><p>Adapter l’école aux enfants, et non les enfants à l’école, grâce à une vie scolaire active et variée.</p></div>
+<div><h3>Notre engagement</h3><p>Un suivi individualisé de chaque élève, avec des conventions avec des spécialistes : médecins, assistants sociaux, orthophonistes.</p></div></div>
+<a class="btn" href="#histoire">Découvrir l’école</a></div>
+</div></section>
+
+<div class="stats" id="chiffres"><div class="wrap">
+<div><b>3</b><span>langues d’enseignement : arabe, français, anglais</span></div>
+<div><b>20</b><span>élèves par classe en préscolaire et au collège</span></div>
+<div><b>3</b><span>cycles : préscolaire, primaire et collège</span></div>
+<div><b>2</b><span>laboratoires scientifiques, plus une bibliothèque</span></div>
+<p class="fine">Ouverture prévue en septembre 2027 à Oujda.</p></div></div>
+
+<section class="vals" id="distingue"><div class="wrap"><h2>Ce qui nous distingue</h2>
+<ul><li><h3>Trilingue</h3><p>Arabe, français et anglais, avec une certification reconnue à la fin de chaque cycle.</p></li>
+<li><h3>Enseignants formés</h3><p>400 heures de formation initiale, puis une formation continue permanente.</p></li>
+<li><h3>Suivi individualisé</h3><p>Chaque élève est accompagné tout au long de son parcours.</p></li>
+<li><h3>Qualité accessible</h3><p>Des prix exceptionnels et raisonnables pour un haut niveau d’exigence.</p></li></ul></div></section>
+
+<section id="informatique" class="sand"><div class="wrap about rev">
+<div><h2>L’informatique, pour comprendre le monde et créer.</h2>
+<p>À UMM ALQORA d’EXCELLENCE, l’informatique fait partie des matières renforcées, avec les trois langues (arabe, français, anglais). Les enfants découvrent le numérique en construisant, en programmant et en créant.</p>
+<ul class="chk"><li>Un programme officiel marocain renforcé en informatique</li><li>Un club de robotique pour construire, programmer et tester</li><li>Des ateliers et clubs pédagogiques animés par des spécialistes</li></ul>
+<a class="btn" href="{% url 'website:preinscription' %}">
+    Inscrire mon enfant
+</a>
+<div class="slot ph2"><span>Photo : élèves en atelier de robotique</span></div>
+</div></section>
+
+<section id="vie"><div class="wrap"><h2>La vie à l’école</h2>
+<p style="max-width:42em;color:var(--mute);margin:0">Au-delà de la classe, une vie scolaire active et variée : sport, clubs pédagogiques, théâtre, robotique et sorties éducatives.</p>
+<div class="tiles"><a class="card" href="#activites"><div class="slot"><span>Photo : match dans la cour</span></div><div class="b"><h3>Sport</h3><p>Cour de récréation et terrain de sport en partenariat pour bouger et jouer ensemble.</p></div></a><a class="card" href="#activites"><div class="slot"><span>Photo : atelier théâtre</span></div><div class="b"><h3>Théâtre</h3><p>Un atelier pour oser s’exprimer, en arabe, en français et en anglais.</p></div></a><a class="card" href="#informatique-robotique"><div class="slot"><span>Photo : club de robotique</span></div><div class="b"><h3>Robotique et informatique</h3><p>Construire, programmer et créer avec le numérique.</p></div></a><a class="card" href="#sorties"><div class="slot"><span>Photo : sortie éducative</span></div><div class="b"><h3>Sorties éducatives</h3><p>Visites et sorties pour apprendre aussi hors des murs de l’école.</p></div></a></div></div></section>
+
+<section class="sand"><div class="wrap"><h2>Tracez le chemin de votre enfant</h2>
+<div class="paths">
+<a class="card" href="#distingue"><div class="slot"><span>Photo : une classe en activité</span></div><div class="b"><h3>Apprendre</h3><p>Des classes où les questions mènent aux découvertes.</p><u>En savoir plus</u></div></a>
+<a class="card" href="#vie"><div class="slot"><span>Photo : la cour de récréation</span></div><div class="b"><h3>Vivre</h3><p>Une communauté où les liens sont vrais et où naissent les passions.</p><u>En savoir plus</u></div></a>
+<a class="card" href="#inscription"><div class="slot"><span>Photo : parents et enseignante</span></div><div class="b"><h3>Rejoindre</h3><p>Une inscription qui ressemble à l’entrée dans une seconde maison.</p><u>En savoir plus</u></div></a>
+</div></div></section>
+
+<section id="locaux" style="background:var(--sage)"><div class="wrap"><h2>Nos espaces</h2>
+<p style="max-width:42em;color:#44546B;margin:0">Des locaux pensés pour apprendre, jouer et se retrouver.</p>
+<div class="car" role="region" aria-roledescription="carrousel" aria-label="Nos espaces"><div class="trk" tabindex="0">
+<figure class="sl"><div class="slot"><span>Photo : salle de classe</span></div><figcaption><b>20</b>salles de classe</figcaption></figure>
+<figure class="sl"><div class="slot"><span>Photo : bibliothèque</span></div><figcaption><b>1</b>bibliothèque</figcaption></figure>
+<figure class="sl"><div class="slot"><span>Photo : laboratoire scientifique</span></div><figcaption><b>2</b>laboratoires scientifiques</figcaption></figure>
+<figure class="sl"><div class="slot"><span>Photo : salle polyvalente</span></div><figcaption><b>2</b>salles polyvalentes</figcaption></figure>
+<figure class="sl"><div class="slot"><span>Photo : cour de récréation</span></div><figcaption>Cour de récréation</figcaption></figure>
+<figure class="sl"><div class="slot"><span>Photo : terrain de sport</span></div><figcaption>Terrain de sport en partenariat</figcaption></figure>
+</div><div class="cb"><button type="button" data-d="-1" aria-label="Photo précédente">‹</button><button type="button" data-d="1" aria-label="Photo suivante">›</button></div></div></div></section>
+
+<section id="tarifs"><div class="wrap"><h2>Des tarifs exceptionnels et raisonnables</h2>
+<p style="max-width:42em;color:var(--mute);margin:0">Une éducation d’excellence doit rester accessible. Nos prix sont exceptionnels et raisonnables, pensés pour les familles d’Oujda.</p>
+<div class="fees">
+<div class="fee"><h3>Préscolaire</h3><span>Un prix exceptionnel et raisonnable</span></div>
+<div class="fee f2"><h3>Primaire</h3><span>Un prix exceptionnel et raisonnable</span></div>
+<div class="fee f3"><h3>Collège</h3><span>Un prix exceptionnel et raisonnable</span></div>
+</div><p class="fine2"><a class="lk" href="#contact">Nous contacter pour en savoir plus</a></p></div></section>
+
+<section class="vals" id="actus" style="background:var(--sand)"><div class="wrap"><h2>Actualités</h2>
+<div class="news">
+<a href="#visite"><div class="slot"><span>Photo</span></div><time>Exemple · à venir</time><h3>Journée portes ouvertes : venez découvrir l’école</h3></a>
+<a href="#inscription"><div class="slot"><span>Photo</span></div><time>Exemple · à venir</time><h3>Inscriptions ouvertes pour la rentrée de septembre 2027</h3></a>
+<a href="#locaux"><div class="slot"><span>Photo</span></div><time>Exemple · à venir</time><h3>Une bibliothèque et deux laboratoires pour apprendre en faisant</h3></a>
+</div></div></section>
+
+<div class="band"><div class="wrap"><h2>Commencez ici et regardez votre enfant s’épanouir.</h2>
+<div class="btns"><a class="btn o" href="#visite">S’informer</a><a class="btn o" href="#visite">Visiter</a><a class="btn" href="#inscription">Inscrire mon enfant</a></div></div></div>
+</main>
+{% endblock %}

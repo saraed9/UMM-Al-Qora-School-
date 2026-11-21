@@ -1,0 +1,54 @@
+
+{% extends "base.html" %}
+
+{% block title %}Préinscription | UMM ALQORA{% endblock %}
+
+{% block content %}
+<main class="inner-page">
+    <section class="page-hero">
+        <div class="wrap">
+            <h1>Préinscrire mon enfant</h1>
+            <p>Commencez la démarche de préinscription pour la rentrée 2027.</p>
+        </div>
+    </section>
+
+    <section class="page-content">
+        <div class="wrap">
+            <form class="school-form" method="post">
+                {% csrf_token %}
+
+                <h2>Informations du parent</h2>
+
+                <label>Nom complet</label>
+                <input type="text" name="parent_name" required>
+
+                <label>Adresse e-mail</label>
+                <input type="email" name="email" required>
+
+                <label>Téléphone</label>
+                <input type="tel" name="phone" required>
+
+                <h2>Informations de l'enfant</h2>
+
+                <label>Nom complet de l'enfant</label>
+                <input type="text" name="child_name" required>
+
+                <label>Date de naissance</label>
+                <input type="date" name="birth_date" required>
+
+                <label>Cycle souhaité</label>
+                <select name="cycle" required>
+                    <option value="">Choisir un cycle</option>
+                    <option value="prescolaire">Préscolaire</option>
+                    <option value="primaire">Primaire</option>
+                    <option value="college">Collège</option>
+                </select>
+
+                <button class="btn" type="submit">
+                    Envoyer ma demande
+                </button>
+            </form>
+        </div>
+    </section>
+</main>
+{% endblock %}
