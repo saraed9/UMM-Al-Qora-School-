@@ -1,12 +1,85 @@
-<div class="top"><div class="wrap">{% include "includes/lang_switch.html" %}<a href="#actus">Actualités</a><a href="#calendrier">Calendrier</a><a href="#contact">Contact</a><a href="#connexion" class="cx"><i class="dot"></i>Connexion</a></div></div>
-<header class="main" id="hd"><div class="wrap">
-<a class="logo" href="#"><svg width="32" height="38" viewBox="0 0 34 40" aria-hidden="true"><path d="M0 40V17C0 7 8 0 17 0s17 7 17 17v23z" fill="#14305A"/><circle cx="17" cy="30" r="8" fill="#F2B13C"/><path d="M0 35h34v5H0z" fill="#FBF3E2"/></svg><span>UMM ALQORA<small>d’EXCELLENCE</small></span></a>
-<nav aria-label="Navigation principale">
-<div><a href="#">L’école</a><div class="drop"><a href="#histoire">Notre histoire</a><a href="#mission">Mission et valeurs</a><a href="#locaux">Nos espaces</a></div></div>
-<div><a href="#">Pédagogie</a><div class="drop"><a href="#approche">Notre approche</a><a href="#prescolaire">Préscolaire</a><a href="#primaire">Primaire</a><a href="#college">Collège</a></div></div>
-<div><a href="#">Vie à l’école</a><div class="drop"><a href="#activites">Activités parascolaires</a><a href="#informatique-robotique">Informatique et robotique</a><a href="#sorties">Sorties éducatives</a></div></div>
-<div><a href="#">Admissions</a><div class="drop"><a href="#inscription">Préinscription</a><a href="#visite">Visiter l’école</a><a href="#dossier">Dossier de préinscription</a></div></div>
-<div class="mob"><a href="#inscription">Inscrire mon enfant</a><a href="#connexion">Connexion</a></div></nav>
-<div class="cta"><a class="btn" href="#inscription">Inscrire mon enfant</a></div>
-<button class="burger" aria-expanded="false" aria-controls="hd" onclick="var h=document.getElementById('hd');var o=h.classList.toggle('open');this.setAttribute('aria-expanded',o)">Menu</button>
-</div></header>
+{% load static %}
+
+<div class="top">
+    <div class="wrap">
+        {% include "includes/lang_switch.html" %}
+
+        <a href="{% url 'website:actualites' %}">Actualités</a>
+        <a href="{% url 'website:calendrier' %}">Calendrier</a>
+        <a href="{% url 'website:contact' %}">Contact</a>
+
+        <a href="{% url 'website:connexion' %}" class="cx">
+            <i class="dot"></i> Connexion
+        </a>
+    </div>
+</div>
+
+<header class="main" id="hd">
+    <div class="wrap">
+
+        <a class="logo" href="{% url 'website:home' %}">
+            <svg width="32" height="38" viewBox="0 0 34 40" aria-hidden="true">
+                <path d="M0 40V17C0 7 8 0 17 0s17 7 17 17v23z" fill="#14305A"/>
+                <circle cx="17" cy="30" r="8" fill="#F2B13C"/>
+                <path d="M0 35h34v5H0z" fill="#FBF3E2"/>
+            </svg>
+
+            <span>UMM ALQORA<small>d’EXCELLENCE</small></span>
+        </a>
+
+        <nav aria-label="Navigation principale">
+
+            <div>
+                <a href="{% url 'website:ecole' %}">L’école</a>
+                <div class="drop">
+                    <a href="{% url 'website:histoire' %}">Notre histoire</a>
+                    <a href="{% url 'website:mission' %}">Mission et valeurs</a>
+                    <a href="{% url 'website:espaces' %}">Nos espaces</a>
+                </div>
+            </div>
+
+            <div>
+                <a href="{% url 'website:pedagogie' %}">Pédagogie</a>
+                <div class="drop">
+                    <a href="{% url 'website:approche' %}">Notre approche</a>
+                    <a href="{% url 'website:prescolaire' %}">Préscolaire</a>
+                    <a href="{% url 'website:primaire' %}">Primaire</a>
+                    <a href="{% url 'website:college' %}">Collège</a>
+                </div>
+            </div>
+
+            <div>
+                <a href="{% url 'website:vie' %}">Vie à l’école</a>
+                <div class="drop">
+                    <a href="{% url 'website:activites' %}">Activités parascolaires</a>
+                    <a href="{% url 'website:robotique' %}">Informatique et robotique</a>
+                    <a href="{% url 'website:sorties' %}">Sorties éducatives</a>
+                </div>
+            </div>
+
+            <div>
+                <a href="{% url 'website:admissions' %}">Admissions</a>
+                <div class="drop">
+                    <a href="{% url 'website:preinscription' %}">Préinscription</a>
+                    <a href="{% url 'website:visite' %}">Visiter l’école</a>
+                    <a href="{% url 'website:dossier' %}">Dossier de préinscription</a>
+                </div>
+            </div>
+
+        </nav>
+
+        <div class="cta">
+            <a class="btn" href="{% url 'website:preinscription' %}">
+                Inscrire mon enfant
+            </a>
+        </div>
+
+        <button class="burger"
+                aria-expanded="false"
+                aria-controls="hd"
+                onclick="var h=document.getElementById('hd');var o=h.classList.toggle('open');this.setAttribute('aria-expanded',o)">
+            Menu
+        </button>
+
+    </div>
+</header>

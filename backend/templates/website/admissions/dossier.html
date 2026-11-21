@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Dossier de préinscription | UMM ALQORA{% endblock %}
+
+{% block content %}
+<main class="inner-page">
+
+    <section class="page-hero">
+        <div class="wrap">
+            <p>ADMISSIONS</p>
+            <h1>Dossier de préinscription</h1>
+            <h2>Préparez les documents nécessaires.</h2>
+            <p>Les documents définitifs seront communiqués par l'administration.</p>
+        </div>
+    </section>
+
+    <section class="page-content">
+        <div class="wrap">
+            <div class="page-grid">
+
+                <article class="page-card">
+                    <h2>Informations de l'enfant</h2>
+                    <p>Nom, prénom et date de naissance.</p>
+                </article>
+
+                <article class="page-card">
+                    <h2>Informations des parents</h2>
+                    <p>Coordonnées et informations de contact.</p>
+                </article>
+
+                <article class="page-card">
+                    <h2>Documents scolaires</h2>
+                    <p>Les documents nécessaires seront précisés par l'établissement.</p>
+                </article>
+
+            </div>
+
+            <div class="page-action">
+                <a href="{% url 'website:preinscription' %}" class="btn">
+                    Commencer la préinscription
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

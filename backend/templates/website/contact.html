@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Contact | UMM ALQORA{% endblock %}
+
+{% block content %}
+<main class="inner-page">
+
+    <section class="page-hero">
+        <div class="wrap">
+            <p>UMM ALQORA d’EXCELLENCE · Oujda</p>
+            <h1>Contactez-nous</h1>
+            <h2>Nous sommes à votre écoute.</h2>
+            <p>Une question concernant notre école ou les admissions ? Contactez-nous.</p>
+        </div>
+    </section>
+
+    <section class="page-content">
+        <div class="wrap">
+
+            {% include "website/includes/messages.html" %}
+
+            <form method="post" class="school-form">
+                {% csrf_token %}
+
+                {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {% for error in field.errors %}
+                            <p class="form-error">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+                <button type="submit" class="btn">Envoyer le message</button>
+            </form>
+
+        </div>
+    </section>
+</main>
+{% endblock %}

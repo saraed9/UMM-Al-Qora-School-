@@ -1,149 +1,183 @@
+from django.shortcuts import render, redirect
+from django.contrib import messages
 
-from django.shortcuts import render
+from .forms import ContactForm, PreinscriptionForm, VisiteForm
 
 
 def home(request):
     return render(request, "website/home.html")
 
 
-def ecole(request):
+def page(request, title, subtitle, description, sections):
     return render(request, "website/page.html", {
-        "title": "Notre école",
-        "subtitle": "Une école moderne où chaque enfant a sa place.",
-        "description": "Découvrez UMM ALQORA d’EXCELLENCE, son histoire, sa mission, ses valeurs et ses espaces.",
-        "sections": [
+        "title": title,
+        "subtitle": subtitle,
+        "description": description,
+        "sections": sections,
+    })
+
+
+def ecole(request):
+    return page(
+        request,
+        "Notre école",
+        "Une école moderne où chaque enfant a sa place.",
+        "Découvrez UMM ALQORA d’EXCELLENCE, son histoire, sa mission et ses espaces.",
+        [
+            {
+                "title": "Notre histoire",
+                "text": "Découvrez l'histoire et le projet de notre établissement."
+            },
             {
                 "title": "Notre mission",
-                "text": "Offrir aux enfants une éducation exigeante, bienveillante et adaptée à leurs besoins."
+                "text": "Offrir aux enfants une éducation exigeante et bienveillante."
             },
             {
                 "title": "Nos valeurs",
-                "text": "Excellence, respect, accompagnement individualisé et ouverture sur le monde."
+                "text": "Excellence, respect, autonomie et ouverture sur le monde."
             },
             {
-                "title": "Nos locaux",
-                "text": "Des salles de classe, une bibliothèque, des laboratoires scientifiques et des espaces de vie."
+                "title": "Nos espaces",
+                "text": "Des espaces conçus pour apprendre, découvrir et s'épanouir."
             },
         ],
-    })
+    )
 
 
 def pedagogie(request):
-    return render(request, "website/page.html", {
-        "title": "Notre pédagogie",
-        "subtitle": "Une pédagogie exigeante, trilingue et bienveillante.",
-        "description": "Notre approche pédagogique accompagne chaque enfant dans son développement.",
-        "sections": [
+    return page(
+        request,
+        "Notre pédagogie",
+        "Apprendre, découvrir et progresser.",
+        "Une approche pédagogique adaptée à chaque étape du développement de l'enfant.",
+        [
             {
                 "title": "Préscolaire",
-                "text": "Un environnement adapté à la découverte, au jeu et aux premiers apprentissages."
+                "text": "Découverte, jeu, langage et premiers apprentissages."
             },
             {
                 "title": "Primaire",
-                "text": "Des bases solides en arabe, français, anglais, mathématiques et sciences."
+                "text": "Acquisition des connaissances fondamentales et développement de l'autonomie."
             },
             {
                 "title": "Collège",
-                "text": "Un cycle exigeant pour développer l'autonomie et préparer la suite du parcours scolaire."
+                "text": "Approfondissement des connaissances et préparation à la poursuite des études."
             },
             {
-                "title": "Trois langues",
-                "text": "Arabe, français et anglais au cœur de notre approche trilingue."
+                "title": "Notre approche",
+                "text": "Un accompagnement pédagogique qui valorise la curiosité et la créativité."
             },
         ],
-    })
+    )
 
 
 def vie(request):
-    return render(request, "website/page.html", {
-        "title": "La vie à l'école",
-        "subtitle": "Une école où chaque enfant a sa place.",
-        "description": "Au-delà de la classe, les élèves découvrent, créent et développent leurs passions.",
-        "sections": [
+    return page(
+        request,
+        "La vie à l'école",
+        "Apprendre aussi en dehors de la classe.",
+        "Les activités contribuent au développement personnel et collectif des élèves.",
+        [
             {
-                "title": "Sport",
-                "text": "Des activités sportives pour bouger et apprendre à jouer ensemble."
+                "title": "Activités parascolaires",
+                "text": "Des activités variées pour découvrir de nouvelles passions."
             },
             {
-                "title": "Théâtre",
-                "text": "Un atelier pour développer l'expression et la confiance en soi."
-            },
-            {
-                "title": "Robotique et informatique",
-                "text": "Construire, programmer et créer avec le numérique."
+                "title": "Informatique et robotique",
+                "text": "Découvrir le numérique, la logique et la programmation."
             },
             {
                 "title": "Sorties éducatives",
-                "text": "Des visites pour apprendre également en dehors de l'école."
+                "text": "Des expériences pour découvrir le monde qui nous entoure."
+            },
+            {
+                "title": "Sport et culture",
+                "text": "Développer l'esprit d'équipe, la créativité et la confiance."
             },
         ],
-    })
+    )
 
 
 def admissions(request):
-    return render(request, "website/page.html", {
-        "title": "Admissions",
-        "subtitle": "Rejoignez UMM ALQORA d’EXCELLENCE.",
-        "description": "Retrouvez les informations nécessaires pour préparer l'inscription de votre enfant.",
-        "sections": [
+    return page(
+        request,
+        "Admissions",
+        "Rejoignez UMM ALQORA d’EXCELLENCE.",
+        "Préparez la candidature et la préinscription de votre enfant.",
+        [
             {
-                "title": "Préscolaire",
-                "text": "Découvrez notre parcours préscolaire et son approche pédagogique."
+                "title": "Les cycles proposés",
+                "text": "Préscolaire, primaire et collège."
             },
             {
-                "title": "Primaire",
-                "text": "Découvrez notre programme et notre accompagnement des élèves."
+                "title": "Préinscription",
+                "text": "Transmettez les premières informations concernant votre enfant."
             },
             {
-                "title": "Collège",
-                "text": "Découvrez notre organisation et notre approche pour le cycle collège."
+                "title": "Dossier d'inscription",
+                "text": "Consultez les documents nécessaires à l'inscription."
+            },
+            {
+                "title": "Visite de l'établissement",
+                "text": "Prenez contact avec l'école pour organiser une visite."
             },
         ],
-    })
+    )
 
 
 def actualites(request):
-    return render(request, "website/page.html", {
-        "title": "Actualités",
-        "subtitle": "Les nouvelles de notre école.",
-        "description": "Retrouvez les actualités et les événements d'UMM ALQORA d’EXCELLENCE.",
-        "sections": [
+    return page(
+        request,
+        "Actualités",
+        "Les nouvelles de notre école.",
+        "Retrouvez les informations et les événements de l'établissement.",
+        [
+            {
+                "title": "Ouverture de l'établissement",
+                "text": "Les informations concernant l'ouverture seront communiquées prochainement."
+            },
             {
                 "title": "Journées portes ouvertes",
-                "text": "Les informations concernant les prochaines journées portes ouvertes seront publiées ici."
-            },
-            {
-                "title": "Rentrée scolaire 2027",
-                "text": "Les informations relatives à la rentrée de septembre 2027 seront communiquées prochainement."
+                "text": "Les dates seront annoncées prochainement."
             },
         ],
-    })
+    )
 
 
 def calendrier(request):
-    return render(request, "website/page.html", {
-        "title": "Calendrier scolaire",
-        "subtitle": "Les grandes dates de l'année scolaire 2027-2028.",
-        "description": "Retrouvez ici les dates de rentrée, les journées portes ouvertes, les vacances et les événements de l'école.",
-        "sections": [
+    return page(
+        request,
+        "Calendrier scolaire",
+        "Les dates importantes de l'année.",
+        "Retrouvez les événements et les dates importantes de l'établissement.",
+        [
             {
                 "title": "Rentrée scolaire",
-                "text": "Date à confirmer."
-            },
-            {
-                "title": "Journées portes ouvertes",
-                "text": "Dates à communiquer."
+                "text": "Date à confirmer par l'établissement."
             },
             {
                 "title": "Vacances scolaires",
-                "text": "Calendrier à confirmer par l'établissement."
+                "text": "Les périodes de vacances seront communiquées prochainement."
+            },
+            {
+                "title": "Événements",
+                "text": "Les événements seront ajoutés au calendrier."
             },
         ],
-    })
+    )
 
 
 def contact(request):
-    return render(request, "website/contact.html")
+    form = ContactForm(request.POST or None)
+
+    if request.method == "POST" and form.is_valid():
+        messages.success(
+            request,
+            "Votre message a été validé. Merci de nous avoir contactés."
+        )
+        return redirect("website:contact")
+
+    return render(request, "website/contact.html", {"form": form})
 
 
 def connexion(request):
@@ -151,8 +185,190 @@ def connexion(request):
 
 
 def preinscription(request):
-    return render(request, "website/preinscription.html")
+    form = PreinscriptionForm(request.POST or None)
+
+    if request.method == "POST" and form.is_valid():
+        messages.success(
+            request,
+            "Votre formulaire a été validé. L'équipe de l'école pourra vous recontacter."
+        )
+        return redirect("website:preinscription")
+
+    return render(
+        request,
+        "website/admissions/preinscription.html",
+        {"form": form}
+    )
 
 
 def visite(request):
-    return render(request, "website/visite.html")
+    form = VisiteForm(request.POST or None)
+
+    if request.method == "POST" and form.is_valid():
+        messages.success(
+            request,
+            "Votre demande de visite a été validée."
+        )
+        return redirect("website:visite")
+
+    return render(request, "website/admissions/visite.html", {"form": form})
+
+
+def dossier(request):
+    return render(request, "website/admissions/dossier.html")
+
+
+def histoire(request):
+    return page(
+        request,
+        "Notre histoire",
+        "Un projet éducatif tourné vers l'avenir.",
+        "Découvrez le projet et les ambitions de notre établissement.",
+        [
+            {
+                "title": "Notre établissement",
+                "text": "UMM ALQORA d’EXCELLENCE est un projet éducatif situé à Oujda, au Maroc."
+            },
+            {
+                "title": "Notre ambition",
+                "text": "Proposer un environnement favorable à l'apprentissage et à l'épanouissement."
+            },
+        ],
+    )
+
+
+def mission(request):
+    return page(
+        request,
+        "Mission et valeurs",
+        "Former et accompagner chaque élève.",
+        "Notre projet éducatif repose sur des valeurs essentielles.",
+        [
+            {
+                "title": "Excellence",
+                "text": "Encourager chaque élève à progresser."
+            },
+            {
+                "title": "Respect",
+                "text": "Favoriser un environnement bienveillant."
+            },
+            {
+                "title": "Autonomie",
+                "text": "Développer la responsabilité et l'esprit d'initiative."
+            },
+        ],
+    )
+
+
+def espaces(request):
+    return page(
+        request,
+        "Nos espaces",
+        "Des espaces pour apprendre et découvrir.",
+        "Présentation des espaces de l'établissement.",
+        [
+            {
+                "title": "Salles de classe",
+                "text": "Des espaces dédiés aux apprentissages."
+            },
+            {
+                "title": "Espaces de découverte",
+                "text": "Des lieux adaptés aux activités et aux projets."
+            },
+        ],
+    )
+
+
+def approche(request):
+    return page(
+        request,
+        "Notre approche pédagogique",
+        "Apprendre autrement.",
+        "Une pédagogie qui encourage la participation et la curiosité.",
+        [
+            {
+                "title": "Apprentissage actif",
+                "text": "L'élève participe activement à ses apprentissages."
+            },
+            {
+                "title": "Accompagnement",
+                "text": "Chaque élève bénéficie d'un suivi adapté."
+            },
+        ],
+    )
+
+
+def cycle(request, nom, titre):
+    return page(
+        request,
+        titre,
+        "Un parcours adapté à chaque âge.",
+        "Découvrez les objectifs et les apprentissages de ce cycle.",
+        [
+            {
+                "title": "Apprentissages",
+                "text": "Des activités adaptées au niveau et au développement des élèves."
+            },
+            {
+                "title": "Accompagnement",
+                "text": "Un suivi pédagogique tout au long du parcours scolaire."
+            },
+        ],
+    )
+
+
+def activites(request):
+    return page(
+        request,
+        "Activités parascolaires",
+        "Découvrir et développer ses passions.",
+        "Les activités complètent les apprentissages scolaires.",
+        [
+            {
+                "title": "Activités sportives",
+                "text": "Développer la coopération et l'esprit d'équipe."
+            },
+            {
+                "title": "Activités artistiques",
+                "text": "Encourager l'expression et la créativité."
+            },
+        ],
+    )
+
+
+def robotique(request):
+    return page(
+        request,
+        "Informatique et robotique",
+        "Comprendre, programmer et créer.",
+        "Une découverte du numérique et de la logique informatique.",
+        [
+            {
+                "title": "Informatique",
+                "text": "Découvrir les outils numériques."
+            },
+            {
+                "title": "Robotique",
+                "text": "Développer la logique et la résolution de problèmes."
+            },
+        ],
+    )
+
+
+def sorties(request):
+    return page(
+        request,
+        "Sorties éducatives",
+        "Apprendre en découvrant le monde.",
+        "Les sorties permettent de compléter les apprentissages par l'expérience.",
+        [
+            {
+                "title": "Découvertes culturelles",
+                "text": "Découvrir le patrimoine et la culture."
+            },
+            {
+                "title": "Découvertes scientifiques",
+                "text": "Observer et expérimenter."
+            },
+        ],
+    )

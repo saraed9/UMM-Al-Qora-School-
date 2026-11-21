@@ -1669,3 +1669,143 @@ nav > div.open > a {
         padding: 22px;
     }
 }
+/* ==============================
+   PAGES INTERNES
+============================== */
+
+.inner-page {
+    min-height: 70vh;
+}
+
+.page-hero {
+    padding: 90px 0;
+    background: #f5f1e8;
+}
+
+.page-hero h1 {
+    font-family: "Young Serif", serif;
+    font-size: clamp(38px, 5vw, 64px);
+    color: #14305a;
+    margin: 15px 0;
+}
+
+.page-hero h2 {
+    color: #52647b;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.page-hero p {
+    max-width: 650px;
+    line-height: 1.8;
+    color: #52647b;
+}
+
+.page-content {
+    padding: 70px 0;
+}
+
+.page-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.page-card {
+    padding: 30px;
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid #e8e6df;
+    box-shadow: 0 8px 25px rgba(20, 48, 90, .05);
+}
+
+.page-card h2 {
+    color: #14305a;
+    margin-bottom: 15px;
+}
+
+.page-card p {
+    color: #52647b;
+    line-height: 1.8;
+}
+
+.page-action {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* ==============================
+   FORMULAIRES
+============================== */
+
+.school-form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 35px;
+    background: #fff;
+    border: 1px solid #e8e6df;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(20, 48, 90, .06);
+}
+
+.school-form h2 {
+    color: #14305a;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    color: #14305a;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    display: block;
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d9dee5;
+    border-radius: 8px;
+    font: inherit;
+    background: #fff;
+    color: #26364d;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #14305a;
+    box-shadow: 0 0 0 3px rgba(20, 48, 90, .1);
+}
+
+.form-error {
+    color: #b42318;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.form-message {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    background: #e8f5e9;
+    color: #205b2c;
+}
+
+@media (max-width: 600px) {
+    .page-hero {
+        padding: 55px 0;
+    }
+
+    .school-form {
+        padding: 22px;
+    }
+}

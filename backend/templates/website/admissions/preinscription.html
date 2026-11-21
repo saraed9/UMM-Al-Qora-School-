@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Préinscription | UMM ALQORA{% endblock %}
+
+{% block content %}
+<main class="inner-page">
+
+    <section class="page-hero">
+        <div class="wrap">
+            <p>ADMISSIONS · Oujda</p>
+            <h1>Préinscription</h1>
+            <h2>Préparez l'inscription de votre enfant.</h2>
+            <p>Remplissez le formulaire ci-dessous pour transmettre une première demande.</p>
+        </div>
+    </section>
+
+    <section class="page-content">
+        <div class="wrap">
+
+            {% include "website/includes/messages.html" %}
+
+            <form method="post" class="school-form">
+                {% csrf_token %}
+
+                <h2>Informations du parent</h2>
+
+                {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {% for error in field.errors %}
+                            <p class="form-error">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+                <button type="submit" class="btn">Envoyer ma demande</button>
+            </form>
+
+        </div>
+    </section>
+</main>
+{% endblock %}
